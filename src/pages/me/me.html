@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button clear>
+    <ion-title>
       Binder
-    </button>
+    </ion-title>
     <ion-buttons end >
-      <button ion-button clear icon-only item-right>
+      <button ion-button clear icon-only item-right (click)="showSearch()">
         <ion-icon color="danger" name="search"></ion-icon>
       </button>
-      <button ion-button clear icon-only item-right>
+      <button ion-button clear icon-only item-right (click)="showMessagePage()">
         <ion-icon color="danger" name="mail"></ion-icon>
       </button>
        <button ion-button clear icon-only item-right>
@@ -20,46 +20,68 @@
 <ion-content>
   <ion-card>
     <ion-item>
-      <ion-row>
-        <ion-col>
-          <ion-avatar item-left>
-            <img src="img/marty-avatar.png">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <h2>Name</h2>
-        </ion-col>
-        <ion-col>
-          <ion-buttons end>
-            <button ion-button clear icon-only item-right>
-              <ion-icon color="danger" name="settings"></ion-icon>
-            </button>    
-          </ion-buttons>
-        </ion-col>
-      </ion-row>
-        <p>@username</p>
-        <p>@Location</p>
-      <ion-segment>
-        <ion-segment-button value="Following">
-          Following
-        </ion-segment-button>
-      
-        <ion-segment-button value="Followers">
-          Followers
-        </ion-segment-button>
-      </ion-segment>
+      <ion-avatar item-left>
+        <img src="img/marty-avatar.png">
+      </ion-avatar>
+      <h2>John Doe</h2>
+      <p>Birthday: April 26</p>
+      <button ion-button icon-only item-right clear>
+        <ion-icon name="settings"></ion-icon>
+      </button>
     </ion-item>
+    
+    <ion-row>
+      <ion-col col-50>
+        <button ion-button clear block>
+          Follower
+        </button>
+      </ion-col>
+      <ion-col col-50>
+        <button ion-button clear block>
+          Following
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-card>
 
-  <ion-segment>
-    <ion-segment-button value="Likes">
+  <ion-segment [(ngModel)]="activity">
+    <ion-segment-button value="post">
+      Posts
+    </ion-segment-button>
+    <ion-segment-button value="like">
       Likes
     </ion-segment-button>
-    <ion-segment-button value="Bought">
-      Bought
-    </ion-segment-button>
-    <ion-segment-button value="Sold Books">
-      Sold
-    </ion-segment-button>
   </ion-segment>
+
+  <div [ngSwitch]="activity">
+    <ion-list *ngSwitchCase="'like'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Harry Potter</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Catch me, I'm Yours</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'post'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Operating System</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>System Analysis and Design</h2>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

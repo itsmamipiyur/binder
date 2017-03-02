@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MessagePage } from '../message/message';
 import { App, ViewController } from 'ionic-angular';
 
 /*
