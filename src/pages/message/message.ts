@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-import { App, ViewController } from 'ionic-angular';
-
 import { ViewMessagePage } from '../view-message/view-message';
 
 /*
@@ -17,20 +14,14 @@ import { ViewMessagePage } from '../view-message/view-message';
 })
 export class MessagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public appCtrl: App) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MessagePage');
   }
 
   viewMessage(name: string, title: string) {
-  	/*this.navCtrl.push(ViewMessagePage, { name: name, title: title });*/  
-
-    this.viewCtrl.dismiss();
-    this.appCtrl.getRootNav().push(ViewMessagePage, {
-      name: name, 
-      title: title 
-    });
+  	this.navCtrl.push(ViewMessagePage, { name: name, title: title });
   }
 
 }

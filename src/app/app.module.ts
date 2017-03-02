@@ -21,7 +21,9 @@ import { SearchPage } from '../pages/search/search';
     SearchPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

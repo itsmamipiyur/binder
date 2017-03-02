@@ -26,8 +26,8 @@ export class ViewMessagePage {
     console.log('ionViewDidLoad ViewMessagePage');
   }
 
-  /*ionViewWillLeave(){
+  /*ionViewDidLeave(){
     this.viewCtrl.dismiss();
-    this.appCtrl.getRootNav().setRoot(MessagePage);
+    this.navCtrl.pop();
   }*/
 }
