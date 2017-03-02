@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MessagePage } from '../pages/message/message'
 import { ViewMessagePage } from '../pages/view-message/view-message';
+import { SearchPage } from '../pages/search/search';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ViewMessagePage } from '../pages/view-message/view-message';
     HomePage,
     TabsPage,
     MessagePage,
-    ViewMessagePage
+    ViewMessagePage,
+    SearchPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +31,8 @@ import { ViewMessagePage } from '../pages/view-message/view-message';
     HomePage,
     TabsPage,
     MessagePage,
-    ViewMessagePage
+    ViewMessagePage,
+    SearchPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
