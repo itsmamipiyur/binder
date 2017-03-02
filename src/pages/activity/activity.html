@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button clear>
+      Binder
+    </button>
+    <ion-buttons end >
+      <button ion-button clear icon-only item-right>
+        <ion-icon color="danger" name="search"></ion-icon>
+      </button>
+      <button ion-button clear icon-only item-right>
+        <ion-icon color="danger" name="mail"></ion-icon>
+      </button>
+       <button ion-button clear icon-only item-right>
+        <ion-icon color="danger" name="pricetag"></ion-icon>
+       </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<ion-list>
+  <ion-item (click)="clickItem('item1')">
+    <ion-thumbnail item-left>
+      <img src="">
+    </ion-thumbnail>
+    <h2>My Name</h2>
+    <p>BokJoo • 1988</p>
+  </ion-item>
+  
+
+  <ion-item (click)="clickItem('item2')">
+    <ion-thumbnail item-left>
+      <img src="">
+    </ion-thumbnail>
+    <h2>My Name</h2>
+    <p>BokJoo • 1988</p>
+  </ion-item>
+
+ </ion-list>
+</ion-content>
