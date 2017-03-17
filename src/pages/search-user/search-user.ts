@@ -1,38 +1,38 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { PostProvider } from '../../providers/post-provider';
+import { UserProvider } from '../../providers/user-provider';
+import { MePage } from '../me/me';
 
 /*
-  Generated class for the Search page.
+  Generated class for the SeachUser page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html'
+  selector: 'page-search-user',
+  templateUrl: 'search-user.html'
 })
-export class SearchPage {
+export class SearchUserPage {
 
-	items: any;
+  users: any;
   result: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public postProv: PostProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userProv: UserProvider) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
+    console.log('ionViewDidLoad SeachUserPage');
   }
 
-
   initializeItems(){
-    this.items = null;
+    this.users = null;
     this.result = null;
   }
 
   searchPost(val){
-  	this.postProv.searchPost(val).subscribe(res => {
-  		this.items = res
-      this.result = Object.keys(this.items).length;
+  	this.userProv.searchUser(val).subscribe(res => {
+  	  this.users = res
+      this.result = Object.keys(this.users).length;
   	});
   }
 
@@ -47,6 +47,14 @@ export class SearchPage {
     if (val && val.trim() != '') {
       this.searchPost(val);
     }
+  }
+
+  showUser(userId)
+  {
+    console.log(userId);
+    this.navCtrl.push(MePage, {
+      userId: userId,
+    });
   }
 
 }

@@ -20,8 +20,8 @@ export class MessagePage {
     console.log('ionViewDidLoad MessagePage');
   }
 
-  viewMessage(name: string, title: string) {
-  	this.navCtrl.push(ViewMessagePage, { name: name, title: title });
+  viewMessage(name: string, title: string, img: string) {
+  	this.navCtrl.push(ViewMessagePage, { name: name, title: title, img: img });
   }
 
 }

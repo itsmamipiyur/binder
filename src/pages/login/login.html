@@ -6,13 +6,44 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
+  <ion-navbar hideBackButton color="danger">
+    <ion-title>Binder</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+	<ion-row>
+		<ion-col>
+			<h1 style="text-align: center">Welcome to Binder!</h1>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col>
+			<form>
+				<ion-item>
+					<ion-label floating>Username</ion-label>
+					<ion-input type="text" name="username" [(ngModel)]="username"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>Password</ion-label>
+					<ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+				</ion-item>
+				<ion-row>
+					<ion-col>
+						<button ion-button outline block color="danger" (click)="authenticate()">Login</button>
+					</ion-col>
+				</ion-row>
+			</form>
+		</ion-col>
+	</ion-row>
 </ion-content>
+
+<ion-footer>
+	<ion-row>
+		<ion-col>
+			<button ion-button clear block color="dark" (click)="showSignUpPage()">Don't Have an Account?</button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

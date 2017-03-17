@@ -15,10 +15,12 @@ import { App, ViewController } from 'ionic-angular';
 export class ViewMessagePage {
   name: string;
   title: string;
+  img: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public appCtrl: App) {
   	this.name = this.navParams.get('name');
     this.title = this.navParams.get('title');
+    this.img = this.navParams.get('img');
     console.log(this.name + ' ' + this.title);
   }
 

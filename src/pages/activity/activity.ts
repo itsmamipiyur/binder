@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MessagePage } from '../message/message';
 import { SearchPage } from '../search/search';
+import { SellPage } from '../sell/sell';
+import { SearchUserPage } from '../search-user/search-user';
 
 @Component({
   selector: 'page-activity',
@@ -27,4 +29,12 @@ export class ActivityPage {
     this.navCtrl.push(SearchPage);
   }
 
+  showSellPage(){
+    this.navCtrl.push(SellPage);
+  }
+
+  showSearchUser()
+  {
+    this.navCtrl.push(SearchUserPage); 
+  }
 }

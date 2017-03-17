@@ -1,44 +1,65 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>
       Binder
     </ion-title>
-    <ion-buttons end >
-      <button ion-button clear icon-only item-right (click)="showSearch()">
-        <ion-icon color="danger" name="search"></ion-icon>
+    <ion-buttons *ngIf="showNavTool" end>
+      <button ion-button clear icon-only item-right (click)="showSearchUser()">
+        <ion-icon name="person-add"></ion-icon>
       </button>
-      <button ion-button clear icon-only item-right (click)="showMessagePage()">
-        <ion-icon color="danger" name="mail"></ion-icon>
+      <button ion-button clear icon-only (click)="showSearch()">
+        <ion-icon name="search"></ion-icon>
       </button>
-       <button ion-button clear icon-only item-right>
-        <ion-icon color="danger" name="pricetag"></ion-icon>
+      <button ion-button clear icon-only (click)="showMessagePage()">
+        <ion-icon name="mail"></ion-icon>
+      </button>
+       <button ion-button clear icon-only (click)="showSellPage()">
+        <ion-icon name="pricetag"></ion-icon>
        </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Getting fresh posts">
+    </ion-refresher-content>
+  </ion-refresher>
+  
   <ion-card>
     <ion-item>
       <ion-avatar item-left>
-        <img src="img/marty-avatar.png">
+        <img [src]="image" *ngIf="image" />
       </ion-avatar>
-      <h2>John Doe</h2>
-      <p>Birthday: April 26</p>
-      <button ion-button icon-only item-right clear (click)="openSettings()">
-        <ion-icon name="settings"></ion-icon>
-      </button>
+      <h2>{{name}}</h2>
+      <p>@{{username}}</p>
+
+      <ion-buttons item-right>
+        <button ion-button outline small *ngIf="isFollowing" (click)="followUser()">
+          Unfollow 
+        </button>
+        <button ion-button small *ngIf="showFollowButton && !isFollowing" (click)="followUser()">
+          Follow 
+        </button>
+        <button ion-button icon-only clear small (click)="openSettings()" *ngIf="showNavTool">
+          <ion-icon name="settings"></ion-icon>
+        </button>
+      </ion-buttons>
     </ion-item>
     
     <ion-row>
       <ion-col col-50>
-        <button ion-button clear block>
-          Follower
+        <button ion-button block clear (click)="openFollower()">
+          <ion-badge item-right>{{ followerCount }}</ion-badge>&nbsp;&nbsp;Follower
         </button>
       </ion-col>
       <ion-col col-50>
-        <button ion-button clear block>
-          Following
+        <button ion-button block clear (click)="openFollowing()">
+          <ion-badge item-right>{{ followingCount }}</ion-badge>&nbsp;&nbsp;Following
         </button>
       </ion-col>
     </ion-row>
@@ -57,13 +78,13 @@
     <ion-list *ngSwitchCase="'like'">
       <ion-item>
         <ion-thumbnail item-left>
-          <img src="img/thumbnail-kitten-1.jpg">
+          <img src="../../assets/img/1.png">
         </ion-thumbnail>
         <h2>Harry Potter</h2>
       </ion-item>
       <ion-item>
         <ion-thumbnail item-left>
-          <img src="img/thumbnail-kitten-1.jpg">
+          <img src="../../assets/img/2.png">
         </ion-thumbnail>
         <h2>Catch me, I'm Yours</h2>
       </ion-item>
@@ -72,13 +93,13 @@
     <ion-list *ngSwitchCase="'post'">
       <ion-item>
         <ion-thumbnail item-left>
-          <img src="img/thumbnail-kitten-1.jpg">
+          <img src="../../assets/img/2.png">
         </ion-thumbnail>
         <h2>Operating System</h2>
       </ion-item>
       <ion-item>
         <ion-thumbnail item-left>
-          <img src="img/thumbnail-kitten-1.jpg">
+          <img src="../../assets/img/3.png">
         </ion-thumbnail>
         <h2>System Analysis and Design</h2>
       </ion-item>

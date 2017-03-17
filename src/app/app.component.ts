@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage: any;
+  auth: string;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -18,5 +20,25 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+    this.getAuth();
+
+    //this.rootPage = LoginPage;
+  }
+
+  ngOnInit(){
+    this.checkAuth();
+  }
+
+  checkAuth(){
+    if(this.auth == "1"){
+      this.rootPage = TabsPage;
+    }else{
+      this.rootPage = LoginPage;
+    }
+  }
+
+
+  getAuth(){
+    this.auth = localStorage.getItem("auth")
   }
 }

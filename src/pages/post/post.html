@@ -1,0 +1,72 @@
+<!--
+  Generated template for the Post page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-thumbnail>
+      <img src="../../assets/img/1.png">
+    </ion-thumbnail>
+    <ion-card-content>
+    <ion-card-title> Looking for Alaska </ion-card-title>
+    <hr/>
+	<ion-item>
+		<ion-avatar item-left>
+			<img src="../../assets/img/Mimiw.jpg">
+		</ion-avatar>
+    	<p>
+       	 Posted by: notjo
+    	</p>
+    	<p>
+        	4 days ago
+    	</p>
+	</ion-item>
+		<p>
+      <ion-icon name='heart'></ion-icon>&nbsp;&nbsp; 24 Likes
+    </p>
+    <p>
+		  <ion-icon name="bookmarks"> </ion-icon>&nbsp;&nbsp; <strong>Author:</strong> John Green
+    </p>
+    <p>
+      <ion-icon name="star"> </ion-icon>&nbsp;&nbsp; <strong>Condition:</strong> Used
+    </p>
+    <p>
+      <ion-icon name="information-circle"> </ion-icon>&nbsp;&nbsp; <strong>Description:</strong> Paperback with plastic cover. 9/10
+    </p>
+    <p>
+      <ion-icon name="pricetags"> </ion-icon>&nbsp;&nbsp; <strong>Price:</strong> PHP100.00
+    </p>
+    <p>
+      <ion-icon name="map"> </ion-icon>&nbsp;&nbsp; <strong>Location:</strong> Taguig City
+    </p>
+   	</ion-card-content>
+
+</ion-content>
+
+<ion-footer>
+	<ion-item>
+		<ion-row>
+      <ion-col col-50>
+        <button ion-button clear block  color="danger" (click)="likePost()">
+        <ion-icon name="{{ like ? 'heart' : 'heart-outline' }}" icon-left> </ion-icon>&nbsp;&nbsp; Like
+        </button>
+      </ion-col>
+      <ion-col col-50>
+        <button ion-button clear block color="danger" (click)="viewMessage('notjo', 'Looking for Alaska')">
+        	<ion-icon name="chatbubbles"> </ion-icon>&nbsp;&nbsp; Message
+        </button>
+      </ion-col>
+    </ion-row>
+	</ion-item>
+</ion-footer>
